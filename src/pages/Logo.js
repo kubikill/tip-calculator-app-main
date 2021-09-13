@@ -3,7 +3,7 @@ import LogoImage from "../images/logo.svg";
 
 const Logo = () => {
   return (
-    <div className={logoStyles.container}>
+    <div>
       <img className={logoStyles.logo} src={LogoImage} alt="Splitter" />
     </div>
   );
