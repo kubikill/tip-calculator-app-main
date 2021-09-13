@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const BillCalculator = () => {
+const TipCalculator = () => {
   const [bill, setBill] = useState({
     bill: 0,
     tipPercent: 0,
@@ -9,4 +9,4 @@ const BillCalculator = () => {
   return null;
 };
 
-export default BillCalculator;
+export default TipCalculator;
