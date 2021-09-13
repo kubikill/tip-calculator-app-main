@@ -1,14 +1,17 @@
 import * as React from "react";
 import Logo from "./Logo";
-import BillCalculator from "./BillCalculator";
-import * as mainStyles from "./index.module.scss";
+import TipCalculator from "./TipCalculator";
+import Section from "./Section";
+import "./index.scss";
 
 // markup
 const IndexPage = () => {
   return (
     <main>
       <Logo />
-      <BillCalculator />
+      <Section>
+        <TipCalculator />
+      </Section>
     </main>
   );
 };
