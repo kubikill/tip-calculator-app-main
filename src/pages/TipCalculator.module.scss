@@ -1,0 +1,33 @@
+.inputContainer {
+  background-color: #F3F8Fb;
+  border-radius: 4px;
+  display: flex;
+  font-weight: 700;
+  input {
+    appearance: none;
+    -moz-appearance: textfield;
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    padding: 10px 32px 10px 0;
+    text-align: right;
+    font-size: 24px;
+    font-family: "Space Mono", monospace;
+    font-weight: inherit;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+.inputIcon {
+  font-size: 24px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(184, 14%, 56%);
+  font-weight: inherit;
+}

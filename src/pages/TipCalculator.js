@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as tipCalculatorStyle from "./TipCalculator.module.scss";
 
 const TipCalculator = () => {
   const [bill, setBill] = useState({
@@ -6,7 +7,16 @@ const TipCalculator = () => {
     tipPercent: 0,
     numOfPeople: 0,
   });
-  return null;
+  useEffect(() => {}, [bill]);
+  return (
+    <div className="tipCalculator">
+      <label for="bill">Bill</label>
+      <div className={tipCalculatorStyle.inputContainer}>
+        <div className={tipCalculatorStyle.inputIcon}>$</div>
+        <input id="bill" type="number" />
+      </div>
+    </div>
+  );
 };
 
 export default TipCalculator;
