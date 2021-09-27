@@ -44,16 +44,10 @@ const TipCalculator = () => {
       tipPercent: parseInt(event.target.value),
     });
   }
-  function handleCustomTipPercent(event) {
-    setBill({
-      ...bill,
-      tipPercent: parseInt(event.target.value),
-    });
-  }
 
   return (
     <div className="tipCalculator">
-      <div>
+      <div className={tipCalculatorStyle.inputColumn}>
         <label htmlFor="bill">Bill</label>
         <div className={tipCalculatorStyle.inputContainer}>
           <div className={tipCalculatorStyle.inputIcon}>$</div>
@@ -62,6 +56,7 @@ const TipCalculator = () => {
             decimalScale={2}
             placeholder="0"
             step="0.01"
+            allowNegative={false}
             onValueChange={(values) => {
               setBill({
                 ...bill,
@@ -91,6 +86,7 @@ const TipCalculator = () => {
           <CurrencyFormat
             placeholder="Custom"
             suffix="%"
+            allowNegative={false}
             onValueChange={(values) => {
               if (activeButton.current) {
                 activeButton.current.classList.remove(
@@ -100,7 +96,7 @@ const TipCalculator = () => {
               activeButton.current = null;
               setBill({
                 ...bill,
-                numOfPeople: values.value,
+                tipPercent: parseInt(values.value),
               });
             }}
           />
@@ -109,14 +105,13 @@ const TipCalculator = () => {
         <label htmlFor="people">Number of People</label>
         <div className={tipCalculatorStyle.inputContainer}>
           <div className={tipCalculatorStyle.inputIcon}>P</div>
-          <input
-            name="numOfPeople"
-            type="number"
+          <CurrencyFormat
             placeholder="0"
-            onInput={(event) => {
+            allowNegative={false}
+            onValueChange={(values) => {
               setBill({
                 ...bill,
-                numOfPeople: parseInt(event.target.value),
+                numOfPeople: parseInt(values.value),
               });
             }}
           />
@@ -125,8 +120,8 @@ const TipCalculator = () => {
       <div className={tipCalculatorStyle.tipResults}>
         <div className={tipCalculatorStyle.result}>
           <div className="resultLabel">
-            Tip Amount
-            <br /> / person
+            <div className={tipCalculatorStyle.labelTopRow}>Tip Amount</div>
+            <div className={tipCalculatorStyle.labelBottomRow}>/ person</div>
           </div>
           <CurrencyFormat
             thousandSeparator={true}
@@ -140,8 +135,8 @@ const TipCalculator = () => {
         </div>
         <div className={tipCalculatorStyle.result}>
           <div className="resultLabel">
-            Total
-            <br /> / person
+            <div className={tipCalculatorStyle.labelTopRow}>Total</div>
+            <div className={tipCalculatorStyle.labelBottomRow}>/ person</div>
           </div>
           <CurrencyFormat
             thousandSeparator={true}
@@ -153,7 +148,7 @@ const TipCalculator = () => {
             value={calculated.totalPerPerson}
           />
         </div>
-        <button>RESET</button>
+        <button className={tipCalculatorStyle.resetButton}>RESET</button>
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
 label {
   font-weight: 700;
+  color: hsl(186, 14%, 43%);
+  margin-bottom: 12px;
+  display: block;
 }
 
 .inputContainer {
@@ -10,12 +13,13 @@ label {
   position: relative;
   input {
     color: hsl(183, 100%, 15%);
+    caret-color: hsl(172, 67%, 45%);
     appearance: none;
     -moz-appearance: textfield;
     flex-grow: 1;
     background-color: transparent;
     border: none;
-    padding: 10px 32px 10px 0;
+    padding: 10px 12px 10px 0;
     text-align: right;
     font-size: 24px;
     font-family: "Space Mono", monospace;
@@ -41,6 +45,10 @@ label {
   }
 }
 
+.inputColumn {
+  padding: 0 8px;
+}
+
 .tipContainer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -53,15 +61,45 @@ label {
     border-radius: 4px;
     border-style: none;
     transition: background-color 0.15s, color 0.15s;
-    &:active,
+    padding: 5px 0;
+    &:active {
+      background-color: hsl(173, 61%, 77%);
+      color: hsl(183, 100%, 15%);
+    }
     &.active {
       background-color: hsl(172, 67%, 45%);
       color: hsl(183, 100%, 15%);
     }
   }
   input {
-    font-family: inherit;
+    color: hsl(183, 100%, 15%);
+    appearance: none;
+    -moz-appearance: textfield;
+    flex-grow: 1;
+    background-color: #f3f8fb;
+    border: none;
     text-align: center;
+    font-size: 24px;
+    font-family: "Space Mono", monospace;
+    font-weight: inherit;
+    outline-color: transparent;
+    outline-width: 2px;
+    outline-style: auto;
+    transition: outline-color 0.25s;
+    caret-color: hsl(172, 67%, 45%);
+    &:active,
+    &:focus {
+      outline-color: hsl(172, 67%, 45%);
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &::placeholder,
+    &:placeholder-shown {
+      color: hsl(184, 14%, 56%);
+    }
   }
 }
 
@@ -77,15 +115,52 @@ label {
 
 .tipResults {
   background-color: #07484b;
-  border-radius: 4px;
+  border-radius: 16px;
+  margin-top: 32px;
+  padding: 24px;
 }
 
 .result {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.labelTopRow {
+  color: hsl(189, 41%, 97%);
+  font-weight: bold;
+}
+.labelBottomRow {
+  color: hsl(184, 14%, 56%);
+  font-weight: bold;
 }
 
 .resultValue {
   color: hsl(172, 67%, 45%);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.resetButton {
+  margin-top: 16px;
+  padding: 6px 0;
+  width: 100%;
+  font-family: inherit;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 6px;
+  border-style: none;
+  transition: background-color 0.15s, color 0.15s;
+  &:active {
+    background-color: hsl(173, 61%, 77%);
+    color: hsl(183, 100%, 15%);
+  }
+  &:disabled {
+    background-color: hsl(183, 79%, 24%);
+    color: hsl(183, 100%, 15%);
+  }
 }
