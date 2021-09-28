@@ -14,7 +14,7 @@ const TipCalculator = () => {
     totalPerPerson: 0,
   });
 
-  const [resetDisabled, setResetDisabled] = useState({});
+  const [resetDisabled, setResetDisabled] = useState(true);
 
   let activeButton = useRef(null);
 
@@ -44,10 +44,10 @@ const TipCalculator = () => {
       tipPerPerson: tipPerPerson,
       totalPerPerson: totalPerPerson,
     });
-    if (((bill.cost === bill.tipPercent) === bill.numOfPeople) === "") {
-      setResetDisabled({ disabled });
+    if (bill.cost === "" && bill.tipPercent === "" && bill.numOfPeople === "") {
+      setResetDisabled(true);
     } else {
-      setResetDisabled({});
+      setResetDisabled(false);
     }
   }, [bill]);
 
@@ -185,7 +185,7 @@ const TipCalculator = () => {
         <button
           className={tipCalculatorStyle.resetButton}
           onClick={resetBill}
-          {...resetDisabled}
+          disabled={resetDisabled}
         >
           RESET
         </button>
