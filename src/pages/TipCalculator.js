@@ -67,7 +67,7 @@ const TipCalculator = () => {
   return (
     <div className={tipCalculatorStyle.tipCalculator}>
       <div className={tipCalculatorStyle.inputColumn}>
-        <label htmlFor="bill">Bill</label>
+        <label htmlFor="billField">Bill</label>
         <div className={tipCalculatorStyle.inputContainer}>
           <div className={tipCalculatorStyle.inputIcon}>
             <img src={DollarIcon} alt="" />
@@ -76,9 +76,9 @@ const TipCalculator = () => {
             thousandSeparator={true}
             decimalScale={2}
             placeholder="0"
-            step="0.01"
             allowNegative={false}
             value={bill.cost}
+            id="billField"
             onValueChange={(values) => {
               if (!isNaN(parseInt(values.floatValue))) {
                 setBill({
@@ -131,7 +131,7 @@ const TipCalculator = () => {
           />
         </div>
 
-        <label htmlFor="people">Number of People</label>
+        <label htmlFor="peopleField">Number of People</label>
         <div className={tipCalculatorStyle.inputContainer}>
           <div className={tipCalculatorStyle.inputIcon}>
             <img src={PersonIcon} alt="" />
@@ -140,6 +140,7 @@ const TipCalculator = () => {
             placeholder="0"
             allowNegative={false}
             value={bill.numOfPeople}
+            id="peopleField"
             onValueChange={(values) => {
               if (!isNaN(parseInt(values.value))) {
                 setBill({
