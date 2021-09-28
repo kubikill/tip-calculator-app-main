@@ -27,7 +27,7 @@ label {
     width: 0;
     outline-color: transparent;
     outline-width: 2px;
-    outline-style: auto;
+    outline-style: solid;
     transition: outline-color 0.25s;
     &:active,
     &:focus {
