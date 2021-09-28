@@ -53,6 +53,7 @@ label {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
+  margin-bottom: 32px;
   button {
     font-family: inherit;
     background-color: hsl(183, 100%, 15%);
@@ -162,5 +163,35 @@ label {
   &:disabled {
     background-color: hsl(183, 79%, 24%);
     color: hsl(183, 100%, 15%);
+  }
+}
+
+.tipLabel {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 920px) {
+  .tipCalculator {
+    display: flex;
+    gap: 32px;
+    > div {
+      width: 50%;
+    }
+  }
+  .tipContainer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .inputColumn {
+    padding: 8px 16px;
+  }
+  .tipResults {
+    margin-top: 0;
+    padding: 42px;
+  }
+  .resetButton {
+    margin-top: auto;
+  }
+  .resultValue {
+    font-size: 48px;
   }
 }

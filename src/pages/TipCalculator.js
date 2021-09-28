@@ -46,7 +46,7 @@ const TipCalculator = () => {
   }
 
   return (
-    <div className="tipCalculator">
+    <div className={tipCalculatorStyle.tipCalculator}>
       <div className={tipCalculatorStyle.inputColumn}>
         <label htmlFor="bill">Bill</label>
         <div className={tipCalculatorStyle.inputContainer}>
@@ -66,7 +66,7 @@ const TipCalculator = () => {
           />
         </div>
 
-        <label>Select Tip %</label>
+        <label className={tipCalculatorStyle.tipLabel}>Select Tip %</label>
         <div className={tipCalculatorStyle.tipContainer}>
           <button onClick={handleButtonClick} value={5}>
             5%
