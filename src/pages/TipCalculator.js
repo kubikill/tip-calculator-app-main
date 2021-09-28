@@ -33,7 +33,6 @@ const TipCalculator = () => {
   }
 
   useEffect(() => {
-    console.log(bill);
     let tipPerPerson = (bill.cost / bill.numOfPeople) * (bill.tipPercent / 100);
     if (isNaN(tipPerPerson) | (tipPerPerson === Infinity)) {
       tipPerPerson = 0;
