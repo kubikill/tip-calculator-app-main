@@ -4,9 +4,9 @@ import CurrencyFormat from "react-currency-format";
 
 const TipCalculator = () => {
   const [bill, setBill] = useState({
-    cost: 0,
-    tipPercent: 0,
-    numOfPeople: 0,
+    cost: "",
+    tipPercent: "",
+    numOfPeople: "",
   });
 
   const [calculated, setCalculated] = useState({
@@ -14,9 +14,24 @@ const TipCalculator = () => {
     totalPerPerson: 0,
   });
 
+  const [resetDisabled, setResetDisabled] = useState({});
+
   let activeButton = useRef(null);
 
+  function resetBill() {
+    if (activeButton.current) {
+      activeButton.current.classList.remove(tipCalculatorStyle.active);
+    }
+    activeButton.current = null;
+    setBill({
+      cost: "",
+      tipPercent: "",
+      numOfPeople: "",
+    });
+  }
+
   useEffect(() => {
+    console.log(bill);
     let tipPerPerson = (bill.cost / bill.numOfPeople) * (bill.tipPercent / 100);
     if (isNaN(tipPerPerson) | (tipPerPerson === Infinity)) {
       tipPerPerson = 0;
@@ -29,8 +44,11 @@ const TipCalculator = () => {
       tipPerPerson: tipPerPerson,
       totalPerPerson: totalPerPerson,
     });
-    console.log(bill);
-    console.log(calculated);
+    if (((bill.cost === bill.tipPercent) === bill.numOfPeople) === "") {
+      setResetDisabled({ disabled });
+    } else {
+      setResetDisabled({});
+    }
   }, [bill]);
 
   function handleButtonClick(event) {
@@ -57,11 +75,19 @@ const TipCalculator = () => {
             placeholder="0"
             step="0.01"
             allowNegative={false}
+            value={bill.cost}
             onValueChange={(values) => {
-              setBill({
-                ...bill,
-                cost: values.floatValue,
-              });
+              if (!isNaN(parseInt(values.floatValue))) {
+                setBill({
+                  ...bill,
+                  cost: parseInt(values.floatValue),
+                });
+              } else {
+                setBill({
+                  ...bill,
+                  cost: "",
+                });
+              }
             }}
           />
         </div>
@@ -108,11 +134,19 @@ const TipCalculator = () => {
           <CurrencyFormat
             placeholder="0"
             allowNegative={false}
+            value={bill.numOfPeople}
             onValueChange={(values) => {
-              setBill({
-                ...bill,
-                numOfPeople: parseInt(values.value),
-              });
+              if (!isNaN(parseInt(values.value))) {
+                setBill({
+                  ...bill,
+                  numOfPeople: parseInt(values.value),
+                });
+              } else {
+                setBill({
+                  ...bill,
+                  numOfPeople: "",
+                });
+              }
             }}
           />
         </div>
@@ -148,7 +182,13 @@ const TipCalculator = () => {
             value={calculated.totalPerPerson}
           />
         </div>
-        <button className={tipCalculatorStyle.resetButton}>RESET</button>
+        <button
+          className={tipCalculatorStyle.resetButton}
+          onClick={resetBill}
+          {...resetDisabled}
+        >
+          RESET
+        </button>
       </div>
     </div>
   );

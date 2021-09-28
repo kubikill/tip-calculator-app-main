@@ -19,7 +19,7 @@ label {
     flex-grow: 1;
     background-color: transparent;
     border: none;
-    padding: 10px 12px 10px 0;
+    padding: 5px 12px 5px 0;
     text-align: right;
     font-size: 24px;
     font-family: "Space Mono", monospace;
@@ -178,15 +178,21 @@ label {
       width: 50%;
     }
   }
+  .result {
+    margin: 8px 0;
+  }
   .tipContainer {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    margin-bottom: 38px;
   }
   .inputColumn {
-    padding: 8px 16px;
+    padding: 16px;
   }
   .tipResults {
     margin-top: 0;
     padding: 42px;
+    display: flex;
+    flex-direction: column;
   }
   .resetButton {
     margin-top: auto;
