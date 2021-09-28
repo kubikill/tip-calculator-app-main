@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import * as tipCalculatorStyle from "./TipCalculator.module.scss";
 import CurrencyFormat from "react-currency-format";
+import DollarIcon from "../images/icon-dollar.svg";
+import PersonIcon from "../images/icon-person.svg";
 
 const TipCalculator = () => {
   const [bill, setBill] = useState({
@@ -68,7 +70,9 @@ const TipCalculator = () => {
       <div className={tipCalculatorStyle.inputColumn}>
         <label htmlFor="bill">Bill</label>
         <div className={tipCalculatorStyle.inputContainer}>
-          <div className={tipCalculatorStyle.inputIcon}>$</div>
+          <div className={tipCalculatorStyle.inputIcon}>
+            <img src={DollarIcon} alt="" />
+          </div>
           <CurrencyFormat
             thousandSeparator={true}
             decimalScale={2}
@@ -130,7 +134,9 @@ const TipCalculator = () => {
 
         <label htmlFor="people">Number of People</label>
         <div className={tipCalculatorStyle.inputContainer}>
-          <div className={tipCalculatorStyle.inputIcon}>P</div>
+          <div className={tipCalculatorStyle.inputIcon}>
+            <img src={PersonIcon} alt="" />
+          </div>
           <CurrencyFormat
             placeholder="0"
             allowNegative={false}
