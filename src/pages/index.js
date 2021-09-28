@@ -14,7 +14,6 @@ const IndexPage = () => {
           lang: "en",
         }}
       >
-        <meta charSet="utf-8" />
         <title>Tip Calculator</title>
       </Helmet>
       <Logo />
