@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktip_calculator=self.webpackChunktip_calculator||[]).push([[219],{3255:function(c,n,e){e.r(n),e.d(n,{default:function(){return r}});var t=e(5893),r=function(c){var n=c.children;return(0,t.jsx)("section",{className:"Section-module--container--301vB",children:n})}}}]);
+//# sourceMappingURL=component---src-pages-section-js-43953490c9522c0946ac.js.map
