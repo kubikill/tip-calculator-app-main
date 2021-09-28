@@ -1,6 +1,7 @@
 module.exports = {
+  pathPrefix: "/tip-calculator-app-main",
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://kubikill.github.io/",
     title: "Tip Calculator",
   },
   plugins: [
